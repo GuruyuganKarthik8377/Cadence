@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cadence — Privacy Policy</title>
+<style>
+  body { font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+         max-width: 720px; margin: 0 auto; padding: 32px 20px; line-height: 1.6;
+         color: #111; background: #fff; }
+  h1 { letter-spacing: -0.5px; } h2 { margin-top: 2em; }
+  @media (prefers-color-scheme: dark) {
+    body { color: #eee; background: #141414; } a { color: #9cf; }
+  }
+</style>
+</head>
+<body>
+<h1>Cadence — Privacy Policy</h1>
+<p><em>Last updated: 9 August 2026</em></p>
+
+<p>Cadence is a habit-tracking app. This policy describes exactly what data
+the app stores and how it is used. Cadence has no ads, no third-party
+analytics or tracking SDKs, and never sells data.</p>
+
+<h2>Data we collect</h2>
+<ul>
+  <li><strong>Account:</strong> your email address and password (handled by
+      Supabase Auth; the password is stored only as a secure hash).</li>
+  <li><strong>Profile:</strong> username, display name, an optional avatar
+      image, and an optional short bio.</li>
+  <li><strong>Achievements:</strong> which milestones you have unlocked and
+      the date each one unlocked.</li>
+  <li><strong>App content:</strong> the habits you create (names, schedules,
+      reminder times, optional cover images), your daily completion history
+      including any amount and free-text note you attach to a completed day,
+      and your friendships/habit links with other users.</li>
+  <li><strong>Location (optional, per habit):</strong> see
+      <a href="#location">Location</a> below. Only collected if you attach a
+      place to a habit.</li>
+  <li><strong>Movement (optional, per habit):</strong> for habits that involve
+      running or walking, the app reads your device's motion sensors while a
+      run is in progress to count steps and verify the activity. Step counts
+      are stored with the session; no route or map data is recorded.</li>
+  <li><strong>Device token:</strong> if you enable notifications, a push
+      notification token for your device.</li>
+</ul>
+
+<h2 id="location">Location</h2>
+<p>Location is entirely optional and off unless you choose it. If you attach a
+place to a habit (for example, your gym), the app stores the
+<strong>coordinates of that place</strong> and, when you tap “Check In”, reads
+your device's <strong>current location at that moment</strong> to confirm you
+are within range.</p>
+<ul>
+  <li>Location is read <strong>only while the app is open and only when you
+      tap Check In</strong>. Cadence does not request or use background
+      location, and does not track your movements.</li>
+  <li>Your live position is used for the distance comparison and
+      <strong>is not stored or transmitted anywhere</strong> — only the
+      pass/fail result becomes a completion.</li>
+  <li>The saved place for a habit is stored with that habit and is visible to
+      you only.</li>
+  <li>Place search is powered by <a href="https://www.openstreetmap.org/"
+      >OpenStreetMap</a>'s Nominatim service. When you type a search, that
+      text is sent to OpenStreetMap to return matching places.</li>
+  <li>You can remove a habit's location at any time by editing the habit.</li>
+</ul>
+
+<h2>Where it is stored</h2>
+<p>All data is stored in a Supabase project hosted in the
+<strong>ap-south-1 (Mumbai)</strong> region. Access is protected by
+row-level security: only you (and, for social features, your accepted
+friends) can read your data.</p>
+
+<h2>Stored on your device</h2>
+<p>So the app works without a network connection, Cadence keeps a copy of your
+habit list and recent completions in the app's private storage on your device,
+along with any check-offs made offline that are waiting to be uploaded. This
+copy is <strong>deleted when you sign out</strong>. If you add the home screen
+widget, the names of the habits due today are also stored on the device so the
+widget can display them.</p>
+
+<h2>What other users can see</h2>
+<p>Your profile (username, display name, avatar) is searchable by other
+users so friends can find you, along with your bio if you write one. A few
+account settings live on the same record and are readable by other signed-in
+users: your time zone (stored so reminders and daily rollovers land at the
+right local time) and your notification and streak-freeze preferences. Users
+you accept as friends can see your habit names, your unlocked achievements,
+and, for habits you explicitly link together, your completion activity. Friends can also react to your completions and send you a nudge
+about a linked habit; those reactions and nudges record who sent them and
+when. Nobody outside your accepted friends can see your data. Habit notes,
+amounts, and locations are never shared.</p>
+
+<h2>Notifications</h2>
+<p>Habit reminders are scheduled <strong>on your device</strong> and do not
+involve any server — the reminder time never leaves your phone for this
+purpose. If you enable notifications, a push token is stored so friends'
+nudges can reach you when the app is closed; it is used for nothing else. You
+can turn notifications off in the app, or in your device settings, at any
+time.</p>
+
+<h2>Data deletion</h2>
+<p>You can permanently delete your account and all associated data at any
+time from <strong>Profile → Privacy → Delete Account</strong> inside the
+app. Deletion is immediate and irreversible. See also
+<a href="delete-account.html">account deletion instructions</a>.</p>
+
+<h2>Contact</h2>
+<p>Questions or deletion requests by email:
+<a href="mailto:harishram.b06@gmail.com">harishram.b06@gmail.com</a>.</p>
+</body>
+</html>

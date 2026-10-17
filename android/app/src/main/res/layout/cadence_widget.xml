@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/widget_background"
+    android:padding="14dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+
+        <TextView
+            android:id="@+id/widget_title"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Today"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/widget_text_primary" />
+
+        <TextView
+            android:id="@+id/widget_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/widget_text_secondary" />
+    </LinearLayout>
+
+    <!-- Three static rows. A RemoteViews collection would need a bound
+         Service for what is at most a short list. -->
+    <LinearLayout
+        android:id="@+id/widget_row_0"
+        style="@style/CadenceWidgetRow">
+        <ImageView
+            android:id="@+id/widget_check_0"
+            style="@style/CadenceWidgetCheck" />
+        <TextView
+            android:id="@+id/widget_name_0"
+            style="@style/CadenceWidgetName" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/widget_row_1"
+        style="@style/CadenceWidgetRow">
+        <ImageView
+            android:id="@+id/widget_check_1"
+            style="@style/CadenceWidgetCheck" />
+        <TextView
+            android:id="@+id/widget_name_1"
+            style="@style/CadenceWidgetName" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/widget_row_2"
+        style="@style/CadenceWidgetRow">
+        <ImageView
+            android:id="@+id/widget_check_2"
+            style="@style/CadenceWidgetCheck" />
+        <TextView
+            android:id="@+id/widget_name_2"
+            style="@style/CadenceWidgetName" />
+    </LinearLayout>
+</LinearLayout>

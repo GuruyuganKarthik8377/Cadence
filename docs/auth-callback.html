@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cadence — Confirmed</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, "Segoe UI", Roboto, Inter, sans-serif;
+    background: #F6F5F2;
+    color: #111;
+    padding: 24px;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { background: #141414; color: #F5F5F5; }
+    .card { background: #1E1E1E !important; border-color: #2A2A2A !important; }
+    .btn { background: #F5F5F5 !important; color: #141414 !important; }
+    .secondary { color: #9A9A9A !important; }
+    #markPath { stroke: #141414 !important; }
+  }
+  .card {
+    width: 100%;
+    max-width: 400px;
+    background: #FFFFFF;
+    border: 1px solid #E4E4E7;
+    border-radius: 24px;
+    padding: 40px 32px;
+    text-align: center;
+  }
+  .mark {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+  }
+  @media (prefers-color-scheme: dark) { .mark { background: #F5F5F5; } }
+  .mark svg { display: block; }
+  h1 { font-size: 22px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.3px; }
+  p.sub { font-size: 14px; color: #666; margin: 0 0 28px; line-height: 1.5; }
+  .secondary { color: #666; }
+  .btn {
+    display: inline-block;
+    width: 100%;
+    padding: 15px;
+    border-radius: 16px;
+    background: #111;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+  }
+  .hint { margin-top: 18px; font-size: 12px; color: #999; line-height: 1.5; }
+  .status { display: none; }
+  .status.show { display: block; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="mark">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <path d="M4 16l4-11 4 8 4-13 4 16" stroke="#F6F5F2" stroke-width="2.4"
+              stroke-linecap="round" stroke-linejoin="round" id="markPath"/>
+      </svg>
+    </div>
+
+    <div id="confirmedState">
+      <h1>You're confirmed ✓</h1>
+      <p class="sub">Your email is verified. Open the Cadence app to sign in and
+        keep your streak going.</p>
+      <a id="openAppBtn" class="btn" href="#">Open Cadence</a>
+      <p class="hint">Nothing happening? Make sure Cadence is installed, then
+        open the app and sign in directly — your account is ready.</p>
+    </div>
+
+    <div id="errorState" class="status">
+      <h1>Link expired</h1>
+      <p class="sub">This confirmation link is no longer valid. Go back to the
+        app and request a new one from the sign-up screen.</p>
+    </div>
+  </div>
+
+  <script>
+    // Supabase's verify endpoint redirects here with the session tokens in
+    // the URL fragment (never the query string, so they're not logged by
+    // any server). Forward that fragment straight into the app's deep link.
+    var hash = window.location.hash || '';
+    var params = new URLSearchParams(hash.replace(/^#/, ''));
+    var hasError = params.get('error') || params.get('error_description');
+    var deepLink = 'cadence://auth-callback' + hash;
+
+    if (hasError) {
+      document.getElementById('confirmedState').style.display = 'none';
+      document.getElementById('errorState').classList.add('show');
+    } else {
+      var btn = document.getElementById('openAppBtn');
+      btn.href = deepLink;
+      // Best-effort automatic handoff. Most mobile browsers block a
+      // programmatic redirect to a custom scheme without a user gesture,
+      // so the button above is the reliable path — this just saves a tap
+      // when the browser allows it.
+      window.location.href = deepLink;
+    }
+  </script>
+</body>
+</html>

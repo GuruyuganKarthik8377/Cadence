@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#141414</color>
+    <!-- Widget palette, light. values-night carries the dark variant so the
+         widget follows the system theme like the rest of the app. -->
+    <color name="widget_background">#F6F5F2</color>
+    <color name="widget_text_primary">#141414</color>
+    <color name="widget_text_secondary">#6B7280</color>
+</resources>
